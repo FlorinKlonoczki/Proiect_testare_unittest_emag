@@ -55,8 +55,9 @@ class TestEmag(unittest.TestCase):
         search_box.send_keys('Laptop Nitro 5')
         search_box.submit()
         time.sleep(2)
-        self.driver.find_element(*self.deschidereProdus).click()
-        time.sleep(2)
+        clic_produs = self.driver.find_element(*self.deschidereProdus).click()
+        self.assertTrue("Laptop", clic_produs)
+
 
     def test_verificareStocProdus(self):
         search_box = self.driver.find_element(*self.search_box)
@@ -87,8 +88,9 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        self.driver.find_element(*self.adaugareLaFovorit).click()
-        time.sleep(2)
+        adauga = self.driver.find_element(*self.adaugareLaFovorit).click()
+        self.assertTrue("Favorite", adauga)
+
 
     def test_deschidePaginaDeFavorite(self):
         search_box = self.driver.find_element(*self.search_box)
@@ -99,8 +101,8 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.adaugareLaFovorit).click()
         time.sleep(2)
-        self.driver.find_element(*self.checkFovorit).click()
-        time.sleep(2)
+        favorit = self.driver.find_element(*self.checkFovorit).click()
+        self.assertTrue("Favorite", favorit)
 
     def test_stergereProdusDeLaFavorite(self):
         search_box = self.driver.find_element(*self.search_box)
@@ -113,7 +115,9 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.checkFovorit).click()
         time.sleep(2)
-        self.driver.find_element(*self.stergereFovorite).click()
+        sterge = self.driver.find_element(*self.stergereFovorite).click()
+        self.assertTrue("Sterge", sterge)
+
 
     def test_adaugareProdusLaCos(self):
         search_box = self.driver.find_element(*self.search_box)
@@ -126,5 +130,5 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.checkFovorit).click()
         time.sleep(2)
-        self.driver.find_element(*self.adaugareCos).click()
-        time.sleep(2)
+        cos = self.driver.find_element(*self.adaugareCos).click()
+        self.assertTrue("Adauga", cos)
