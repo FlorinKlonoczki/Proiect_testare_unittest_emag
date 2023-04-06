@@ -1,1 +1,1 @@
- Testarea automata cu libraria unittest in webiste-ul Emag.Cautarea unui produs si afisarea pretului
+ Testarea automata cu libraria unittest in webiste-ul Emag.In acest proiect o sa testam gasirea unui produs emag si verificarea anumitor comenzi de functionalitate. Structura priectului este alcatuita din clasa TestEmag unde sunt toate testele iar pe urma clasa MyTestSuite de unde se genereaza rapoartele testelor.
