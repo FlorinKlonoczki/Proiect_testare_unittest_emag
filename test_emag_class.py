@@ -12,9 +12,9 @@ class TestEmag(unittest.TestCase):
     deschidereProdus = (By.CLASS_NAME, 'card-v2-info')
     verificare_stoc = (By.CLASS_NAME, 'stock-and-genius')
     ridicare_produs = (By.CLASS_NAME, 'de-content')
-    adaugareLaFovorit = (By.CLASS_NAME, 'product-buy-area-wrapper')
-    checkFovorit = (By.ID, 'my_wishlist')
-    stergereFovorite = (By.CSS_SELECTOR, '#list-of-favorites > div > div > div.d-flex.flex-item.flex-wrap.'
+    adaugareLaFavorit = (By.CLASS_NAME, 'product-buy-area-wrapper')
+    checkFavorit = (By.ID, 'my_wishlist')
+    stergereFavorite = (By.CSS_SELECTOR, '#list-of-favorites > div > div > div.d-flex.flex-item.flex-wrap.'
                                          'card-container > div.card-secondary.pad-hrz-sm.flex-item.text-right'
                                          '> div.actions-wrapper > div:nth-child(2)')
     adaugareCos = (By.CLASS_NAME, 'actions-wrapper')
@@ -77,7 +77,7 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        ridicare_produs = self.driver.find_element(*self.ridicare_produs).text
+        ridicare_produs = self.driver.find_element(*self.ridicare_produs).text.replace("ă", "a")
         print(ridicare_produs)
         self.assertIn('Ridicare', ridicare_produs)
 
@@ -88,7 +88,7 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        adauga = self.driver.find_element(*self.adaugareLaFovorit).click()
+        adauga = self.driver.find_element(*self.adaugareLaFavorit).click()
         self.assertTrue("Favorite", adauga)
 
 
@@ -99,9 +99,9 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        self.driver.find_element(*self.adaugareLaFovorit).click()
+        self.driver.find_element(*self.adaugareLaFavorit).click()
         time.sleep(2)
-        favorit = self.driver.find_element(*self.checkFovorit).click()
+        favorit = self.driver.find_element(*self.checkFavorit).click()
         self.assertTrue("Favorite", favorit)
 
     def test_stergereProdusDeLaFavorite(self):
@@ -111,11 +111,11 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        self.driver.find_element(*self.adaugareLaFovorit).click()
+        self.driver.find_element(*self.adaugareLaFavorit).click()
         time.sleep(2)
-        self.driver.find_element(*self.checkFovorit).click()
+        self.driver.find_element(*self.checkFavorit).click()
         time.sleep(2)
-        sterge = self.driver.find_element(*self.stergereFovorite).click()
+        sterge = self.driver.find_element(*self.stergereFavorite).click()
         self.assertTrue("Sterge", sterge)
 
 
@@ -126,9 +126,9 @@ class TestEmag(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element(*self.deschidereProdus).click()
         time.sleep(2)
-        self.driver.find_element(*self.adaugareLaFovorit).click()
+        self.driver.find_element(*self.adaugareLaFavorit).click()
         time.sleep(2)
-        self.driver.find_element(*self.checkFovorit).click()
+        self.driver.find_element(*self.checkFavorit).click()
         time.sleep(2)
         cos = self.driver.find_element(*self.adaugareCos).click()
         self.assertTrue("Adauga", cos)
